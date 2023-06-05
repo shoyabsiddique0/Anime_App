@@ -13,13 +13,13 @@ class SuggestionModel{
   factory SuggestionModel.fromJson(Map<dynamic, dynamic> json){
     return SuggestionModel(
         json['images']['jpg']['image_url'],
-        json['title'] == null ? " Be Naam Hai Yeh Anime" : json['title'],
-        json['status'] == null ? "Hame nahi pata bhaiya" : json['status'],
-        json['type'] == null ? "Type? woh kya hota hai" : json['type'],
-        json['duration'] == null ? "Chalu hote hi khatam ho gaya" : json['duration'],
-        json['source'] == null ? "Shhhhh!" : json['source'],
-        json['popularity'] == null ? "Itna bhi popular nahi hai yeh" : json['poopularity'],
-        json['synopsis'] == null ? "Bhaiya kya hi bataye kya mast story hai" : json['synopsis'],
+        json['title'] ?? " Be Naam Hai Yeh Anime",
+        json['status'] ?? "Hame nahi pata bhaiya",
+        json['type'] ?? "Type? woh kya hota hai",
+        json['duration'] ?? "Chalu hote hi khatam ho gaya",
+        json['source'] ?? "Shhhhh!",
+        json['popularity'] == null ? "Itna bhi popular nahi hai yeh" : json['popularity'].toString(),
+        json['synopsis'] ?? "Bhaiya kya hi bataye kya mast story hai",
         json['genres'] == null ? ["Genre", "Nahi", "Hai", "Iska", "Kuch"] : json['genres'].map((e) => GenreModel.fromMap(e)).toList(),
       json['episodes'] == null ? "0" : json['episodes'].toString()
     );

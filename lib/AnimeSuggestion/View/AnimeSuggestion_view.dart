@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 
 class AnimeSuggestion extends StatelessWidget {
   AnimeSuggestion({super.key});
-  SuggestionModel data = Get.arguments;
+  final SuggestionModel data = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Random Anime Suggestion"),
+        title: const Text("Random Anime Suggestion"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -22,8 +22,9 @@ class AnimeSuggestion extends StatelessWidget {
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) {
                     return child;
-                  } else
-                    return Center(child: const CircularProgressIndicator());
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
                 },
                 frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
                   return child;
@@ -31,13 +32,13 @@ class AnimeSuggestion extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Genre: ",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -47,7 +48,7 @@ class AnimeSuggestion extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: data.Genre.map((e) => Text(e.anime+",  ",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold
@@ -56,30 +57,32 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Title: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20
                   ),
                 ),
-                Text(
-                  "${data.title}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    fontStyle: FontStyle.italic,
+                Flexible(
+                  child: Text(
+                    data.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Duration: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -87,8 +90,8 @@ class AnimeSuggestion extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${data.duration}",
-                  style: TextStyle(
+                  data.duration,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -96,10 +99,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Popularity: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -108,7 +111,7 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
                 Text(
                   "${data.popularity}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -116,10 +119,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Source: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -127,8 +130,8 @@ class AnimeSuggestion extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${data.source}",
-                  style: TextStyle(
+                  data.source,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -136,10 +139,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Status: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -147,8 +150,8 @@ class AnimeSuggestion extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${data.status}",
-                  style: TextStyle(
+                  data.status,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -156,10 +159,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Type: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -167,8 +170,8 @@ class AnimeSuggestion extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${data.type}",
-                  style: TextStyle(
+                  data.type,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -176,10 +179,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Number of Episodes: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -187,8 +190,8 @@ class AnimeSuggestion extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${data.episodes}",
-                  style: TextStyle(
+                  data.episodes,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
@@ -196,10 +199,10 @@ class AnimeSuggestion extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               children: [
-                Text(
+                const Text(
                   "Synopsis: ",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -209,8 +212,8 @@ class AnimeSuggestion extends StatelessWidget {
                 Flexible(
                   child: RichText(
                     text: TextSpan(
-                      text: "${data.synopsis}",
-                      style: TextStyle(
+                      text: data.synopsis,
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           fontStyle: FontStyle.italic,
